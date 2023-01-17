@@ -11,6 +11,7 @@ keywords = ["helixton", "development", "tool", "toolset", "environment"]
 
 [dependencies]
 helixton-toolset = { path = "lib/helixton-toolset" }
+walkdir = "2.3.2"
 
 [profile.dev]
 opt-level = 0

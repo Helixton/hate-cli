@@ -1,16 +1,16 @@
 [package]
-name = "helixton-toolset-cli"
+name = "hate-cli"
 version = "0.1.0"
 edition = "2021"
 description = "Helixton Toolset for Development Operations"
 authors = ["Alexander Schaub <alexander.schaub@helixton.de>"]
 license = "MIT"
-keywords = ["helixton", "development", "tool", "toolset", "environment"]
+keywords = ["hate", "helixton", "development", "tool", "toolset", "environment"]
 
 [workspace]
 
 [dependencies]
-helixton-toolset = { path = "lib/helixton-toolset" }
+hate = { path = "lib/hate" }
 
 [profile.dev]
 opt-level = 0

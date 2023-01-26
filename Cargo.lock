@@ -57,7 +57,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "helixton-toolset"
+name = "hate"
 version = "0.1.0"
 dependencies = [
  "sha2",
@@ -65,10 +65,10 @@ dependencies = [
 ]
 
 [[package]]
-name = "helixton-toolset-cli"
+name = "hate-cli"
 version = "0.1.0"
 dependencies = [
- "helixton-toolset",
+ "hate",
 ]
 
 [[package]]

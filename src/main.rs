@@ -10,8 +10,17 @@ fn main() {
         hate::abort("folder does not exists - abort");
     }
 
-    // let all_files = hate::get_all_files(&target_folder);
-
     let file_hash_map = hate::get_file_sha256_map(&target_folder);
-    println!("{:?}", file_hash_map);
+    
+    
+    
+    // println!("{:?}", file_hash_map);
+
+
+    for file in file_hash_map {
+        println!("filepath {} - SHA256: {:?}", file.0, hate::vec_u8_to_hex_string(&file.1));
+    }
 }
+
+
+

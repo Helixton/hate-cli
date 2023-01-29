@@ -1,5 +1,5 @@
 
-use std::process::exit;
+use std::{process::exit};
 use std::fs;
 use std::path::Path;
 use std::collections::HashMap;
@@ -28,7 +28,7 @@ pub fn get_all_files(target_folder: &Path) -> impl Iterator<Item = DirEntry> {
 }
 
 pub fn get_file_sha256_map(target_folder: &Path) -> HashMap<String, Vec<u8>> {
-    let all_files = get_all_files(target_folder);
+    let all_files = self::get_all_files(target_folder);
 
     let mut file_hash_map: HashMap<String, Vec<u8>> = HashMap::new();
 
@@ -51,4 +51,12 @@ pub fn get_file_sha256_map(target_folder: &Path) -> HashMap<String, Vec<u8>> {
     }
 
     file_hash_map
+}
+
+pub fn vec_u8_to_hex_string(input: &Vec<u8>) -> String {
+    let mut output = String::new();
+    for byte in input {
+        output.push_str(&format!("{:02x}", byte));
+    }
+    output
 }

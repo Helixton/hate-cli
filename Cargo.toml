@@ -10,6 +10,7 @@ keywords = ["hate", "helixton", "development", "tool", "toolset", "environment"]
 [workspace]
 
 [dependencies]
+clap = { version = "4.1.4", features = ["derive"] }
 hate = { path = "lib/hate" }
 
 [profile.dev]

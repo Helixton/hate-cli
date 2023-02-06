@@ -9,6 +9,8 @@
 //     return new_data;
 // }
 
+use std::path::Path;
+
 extern crate unicode_segmentation;
 use unicode_segmentation::UnicodeSegmentation;
 
@@ -34,6 +36,6 @@ fn find_duplicates() {
 }
 
 fn main() {
-    let data: &str = "Hello";
-    println!("{}", reverse(&data));
+
+    find_duplicates();
 }

@@ -12,6 +12,7 @@ keywords = ["hate", "helixton", "development", "tool", "toolset", "environment"]
 [dependencies]
 clap = { version = "4.1.4", features = ["derive"] }
 hate = { path = "lib/hate" }
+unicode-segmentation = "1.10.1"
 
 [profile.dev]
 opt-level = 0

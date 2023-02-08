@@ -1,25 +1,53 @@
 
 
-use ::clap::{Parser, Subcommand, Args};
+use ::clap::{Parser};
 use ::hate;
 
-mod cli_hate;
-use cli_hate::{*};
+mod cli_arguments;
+use cli_arguments::{*};
 
 
 fn main() {
     let cli = CLI::parse();
 
-    println!("{}", hate::info());
+    match &cli.package {
+        Some(Packages::Filesystem(command)) => {
+            // println!("fs commands with {:?}", command.value);
+            // println!("type: {}", hate::type_of(&command.value));
 
-    match &cli.command {
-        Some(Packages::Filesystem(info)) => {
-            println!("fs commands with {:?}", info);
+            match &command.value {
+                Some(FSCommands::Inspect(command)) => {
+                    match command.value {
+                        Some(ref value) => {
+                            let output = hate::inspect(&value, false);
+                            println!("{:?}", output.0);
+                        }
+                        _ => {}
+                    }
+                    
+                },
+                Some(FSCommands::Reverse(command)) => {
+                    match command.value {
+                        Some(ref value) => {
+                            let output = hate::reverse(&value);
+                            println!("{}", output);
+                        }
+                        _ => {}
+                    }
+                },
+                _ => {
+                    println!("{}", hate::info());
+                }
+            }
+
         },
         _ => {
-            println!("error: unknown command");
+            println!("{}", hate::info());
         },
     }
+
+
+
 
 
     // match &cli.command {

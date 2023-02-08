@@ -2,13 +2,10 @@ use ::clap::{Parser, Subcommand, Args};
 
 #[derive(Parser)]
 #[command(author, version)]
-#[command(
-    about = "hate-cli - provided by Helixton - get shit done efficiently by automation",
-    long_about = "<longabout>"
-)]
+#[command(about = "hate-cli - provided by Helixton - get shit done efficiently by automation")]
 pub struct CLI {
     #[command(subcommand)]
-    pub command: Option<Packages>,
+    pub package: Option<Packages>,
 }
 
 #[derive(Subcommand)]
@@ -23,19 +20,20 @@ pub enum FSCommands {
 }
 
 #[derive(Args, Debug)]
+#[command(about = "Package for Operations on Filesystem")]
 pub struct Filesystem {
     #[command(subcommand)]
-    string: Option<FSCommands>,
+    pub value: Option<FSCommands>,
 }
 
 #[derive(Debug, Args)]
 pub struct Inspect {
-    string: Option<String>,
+    pub value: Option<String>,
     #[arg(short = 'd', long = "digits")]
-    only_digits: bool,
+    pub only_digits: bool,
 }
 
 #[derive(Debug, Args)]
 pub struct Reverse {
-    string: Option<String>,
+    pub value: Option<String>,
 }

@@ -21,8 +21,8 @@ pub fn abort(msg: &str) {
     exit(-1);
 }
 
-pub fn print_type_of<T>(_: &T) {
-    println!("{}", std::any::type_name::<T>());
+pub fn type_of<T>(_: &T) -> String {
+    String::from(std::any::type_name::<T>())
 }
 
 pub fn get_all_files(target_folder: &Path) -> impl Iterator<Item = DirEntry> {

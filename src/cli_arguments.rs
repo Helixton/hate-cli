@@ -10,6 +10,7 @@ pub struct CLI {
 
 #[derive(Subcommand)]
 pub enum Packages {
+    #[clap(alias = "fs")]
     Filesystem(Filesystem),
 }
 
@@ -23,7 +24,7 @@ pub enum FSCommands {
 #[command(about = "Package for Operations on Filesystem")]
 pub struct Filesystem {
     #[command(subcommand)]
-    pub value: Option<FSCommands>,
+    pub command: Option<FSCommands>,
 }
 
 #[derive(Debug, Args)]

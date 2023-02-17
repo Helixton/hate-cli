@@ -8,30 +8,29 @@ use cli_arguments::{*};
 
 
 fn main() {
-    let cli = CLI::parse();
+    let cli: CLI = CLI::parse();
 
     match &cli.package {
-        Some(Packages::Filesystem(command)) => {
-            // println!("fs commands with {:?}", command.value);
+        Some(Packages::Filesystem(package)) => {
+            // println!("fs packages with {:?}", command.value);
             // println!("type: {}", hate::type_of(&command.value));
 
-            match &command.value {
+            match &package.command {
                 Some(FSCommands::Inspect(command)) => {
                     match command.value {
                         Some(ref value) => {
-                            let output = hate::inspect(&value, false);
+                            let output: (i32, String) = hate::inspect(&value, false);
                             println!("{:?}", output.0);
-                        }
+                        },
                         _ => {}
                     }
-                    
                 },
                 Some(FSCommands::Reverse(command)) => {
                     match command.value {
                         Some(ref value) => {
-                            let output = hate::reverse(&value);
+                            let output: String = hate::reverse(&value);
                             println!("{}", output);
-                        }
+                        },
                         _ => {}
                     }
                 },

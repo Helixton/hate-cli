@@ -11,12 +11,9 @@ fn main() {
     let cli: CLI = CLI::parse();
 
     match &cli.package {
-        Some(Packages::Filesystem(package)) => {
-            // println!("fs packages with {:?}", command.value);
-            // println!("type: {}", hate::type_of(&command.value));
-
+        Some(Packages::Text(package)) => {
             match &package.command {
-                Some(FSCommands::Inspect(command)) => {
+                Some(TextCommands::Inspect(command)) => {
                     match command.value {
                         Some(ref value) => {
                             let output: (i32, String) = hate::inspect(&value, false);
@@ -25,7 +22,7 @@ fn main() {
                         _ => {}
                     }
                 },
-                Some(FSCommands::Reverse(command)) => {
+                Some(TextCommands::Reverse(command)) => {
                     match command.value {
                         Some(ref value) => {
                             let output: String = hate::reverse(&value);

@@ -10,21 +10,21 @@ pub struct CLI {
 
 #[derive(Subcommand)]
 pub enum Packages {
-    #[clap(alias = "fs")]
-    Filesystem(Filesystem),
+    #[clap(alias = "tx")]
+    Text(Text),
 }
 
 #[derive(Debug, Subcommand)]
-pub enum FSCommands {
+pub enum TextCommands {
     Inspect(Inspect),
     Reverse(Reverse),
 }
 
 #[derive(Args, Debug)]
-#[command(about = "Package for Operations on Filesystem")]
-pub struct Filesystem {
+#[command(about = "Package for Text Operations")]
+pub struct Text {
     #[command(subcommand)]
-    pub command: Option<FSCommands>,
+    pub command: Option<TextCommands>,
 }
 
 #[derive(Debug, Args)]

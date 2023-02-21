@@ -5,26 +5,32 @@ use ::clap::{Parser, Subcommand, Args};
 #[command(about = "hate-cli - provided by Helixton - get shit done efficiently by automation")]
 pub struct CLI {
     #[command(subcommand)]
-    pub package: Option<Packages>,
+    pub package: Option<Package>,
 }
 
 #[derive(Subcommand)]
-pub enum Packages {
+pub enum Package {
     #[clap(alias = "tx")]
-    Text(Text),
+    Text(TextPackage),
+}
+
+#[derive(Args, Debug)]
+#[command(about = "Package for Text Operations")]
+pub struct TextPackage {
+    #[command(subcommand)]
+    pub command: Option<TextCommands>,
 }
 
 #[derive(Debug, Subcommand)]
 pub enum TextCommands {
     Inspect(Inspect),
+    #[clap(alias = "rev")]
     Reverse(Reverse),
 }
 
-#[derive(Args, Debug)]
-#[command(about = "Package for Text Operations")]
-pub struct Text {
-    #[command(subcommand)]
-    pub command: Option<TextCommands>,
+#[derive(Debug, Args)]
+pub struct Reverse {
+    pub value: Option<String>,
 }
 
 #[derive(Debug, Args)]
@@ -34,7 +40,4 @@ pub struct Inspect {
     pub only_digits: bool,
 }
 
-#[derive(Debug, Args)]
-pub struct Reverse {
-    pub value: Option<String>,
-}
+

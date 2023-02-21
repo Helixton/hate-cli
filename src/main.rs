@@ -3,15 +3,15 @@
 use ::clap::{Parser};
 use ::hate;
 
+
 mod cli_arguments;
 use cli_arguments::{*};
-
 
 fn main() {
     let cli: CLI = CLI::parse();
 
     match &cli.package {
-        Some(Packages::Text(package)) => {
+        Some(Package::Text(package)) => {
             match &package.command {
                 Some(TextCommands::Inspect(command)) => {
                     match command.value {

@@ -10,12 +10,15 @@ keywords = ["hate", "helixton", "development", "tool", "toolset", "environment"]
 [workspace]
 
 [dependencies]
+hate = { path = "src/hate" }
+clap = { version = "4.1.4", features = ["derive"] }
+serde = { version = "1.0.158", features = ["derive"] }
+serde_json = { version = "1.0.94" }
 assert_cli = "0.6.3"
 assert_cmd = "2.0.8"
-clap = { version = "4.1.4", features = ["derive"] }
-hate = { path = "src/hate" }
 predicates = "2.1.5"
 unicode-segmentation = "1.10.1"
+proc-macro2 = "1.0.52"
 
 [profile.dev]
 opt-level = 0

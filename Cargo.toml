@@ -19,6 +19,11 @@ assert_cmd = "2.0.8"
 predicates = "2.1.5"
 unicode-segmentation = "1.10.1"
 proc-macro2 = "1.0.52"
+error-chain = "0.12.4"
+tokio = { version = "1", features = ["full"] }
+reqwest = { version = "0.11.15", features = ["json"] }
+reqwest-middleware = "0.2.1"
+reqwest-retry = "0.2.2"
 
 [profile.dev]
 opt-level = 0

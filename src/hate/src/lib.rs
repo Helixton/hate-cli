@@ -1,5 +1,5 @@
 
-use std::{process::exit};
+use std::process::exit;
 use std::fs;
 use std::path::Path;
 use std::collections::HashMap;
@@ -84,4 +84,9 @@ fn inspect_numbers(input: &String) -> i32 {
         }
     }
     return count;
+}
+
+pub fn pdf_extract(filepath: &String) -> String {
+    println!("extracting {filepath}");
+    String::from("<result>")
 }

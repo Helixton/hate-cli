@@ -12,6 +12,7 @@ pub struct CLI {
 pub enum Package {
     #[clap(alias = "tx")]
     Text(TextPackage),
+    PDF(PDFPackage)
 }
 
 #[derive(Args, Debug)]
@@ -21,11 +22,24 @@ pub struct TextPackage {
     pub command: Option<TextCommands>,
 }
 
+#[derive(Args, Debug)]
+#[command(about = "Package for PDF Operations")]
+pub struct PDFPackage {
+    #[command(subcommand)]
+    pub command: Option<PDFCommands>,
+}
+
 #[derive(Debug, Subcommand)]
 pub enum TextCommands {
     Inspect(Inspect),
     #[clap(alias = "rev")]
     Reverse(Reverse),
+}
+
+#[derive(Debug, Subcommand)]
+pub enum PDFCommands {
+    #[clap(alias = "xtr")]
+    Extract(Extract),
 }
 
 #[derive(Debug, Args)]
@@ -38,6 +52,11 @@ pub struct Inspect {
     pub value: Option<String>,
     #[arg(short = 'd', long = "digits")]
     pub only_digits: bool,
+}
+
+#[derive(Debug, Args)]
+pub struct Extract {
+    pub value: Option<String>,
 }
 
 
